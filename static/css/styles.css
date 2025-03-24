@@ -1,0 +1,600 @@
+/* ======================================
+   CSS Variables & Reset
+====================================== */
+:root {
+    --primary-color: #35424a;      /* For header, nav, footer backgrounds */
+    --secondary-color: #1f2a33;    /* Darker shade for hover effects */
+    --accent-color: #f39c12;       /* Accent color for links and highlights */
+    --bg-color: #f4f4f4;           /* Page background */
+    --card-bg: #ffffff;            /* Card backgrounds for forms & dashboards */
+    --success-color: #27ae60;      /* For available items or success states */
+    --danger-color: #c0392b;       /* For booked items or error states */
+    --text-color: #333;            /* Main text color */
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* ======================================
+     Global Styles
+  ====================================== */
+  body {
+    font-family: var(--font-family);
+    background: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: auto;
+    padding: 0%;
+  }
+  
+  /* ======================================
+     Public Pages
+  ====================================== */
+  .public-page {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 20px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  
+  .team-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .team-card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    width: calc(25% - 20px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    text-align: center;
+  }
+  
+  .team-card img {
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  /* Hero Section Animation */
+.animated-hero {
+  position: relative;
+  background: url("{{ url_for('static', filename='images/parking-bg.jpg') }}") no-repeat center center/cover;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+.hero-content {
+  animation: fadeInUp 1.5s ease-out both;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Button Styling */
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 0.8rem 2rem;
+  background: var(--primary-color);
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--secondary-color);
+}
+
+/* Home Info Section */
+.home-info {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 20px;
+  text-align: center;
+  background: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+
+  /* ======================================
+     Header & Navigation
+  ====================================== */
+  header {
+    background: var(--primary-color);
+    color: #fff;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 2rem;
+  }
+  
+  nav .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding-left: 0px;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+  }
+  
+  nav ul li {
+    margin-left: 1.5rem;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    color: var(--accent-color);
+  }
+  
+  .dashboard, .admin-dashboard {
+    background: var(--card-bg);
+    padding: 2rem;
+    margin: 2rem auto;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  }
+  
+  .dashboard h2, .admin-dashboard h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: var(--primary-color);
+  }
+
+  /* ======================================
+     Hero Section (for base.html)
+  ====================================== */
+  .hero {
+    background: url('{{ url_for("static", filename="images/parking-bg.jpg") }}') no-repeat center center/cover;
+    height: 95rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+  }
+  
+  .hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: rgba(0,0,0,0.5); */
+  }
+  
+  .hero h1 {
+    color:#3586ff;
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .hero p {
+    color: #f39c12;
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* ======================================
+     Main Container
+  ====================================== */
+  /* main {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+  } */
+  
+  /* ======================================
+     Form Containers (login.html, register.html)
+  ====================================== */
+  .form-container {
+    background: var(--card-bg);
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  }
+  
+  .form-container h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: var(--primary-color);
+  }
+  
+  .form-container form input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border 0.3s ease;
+  }
+  
+  .form-container form input:focus {
+    border-color: var(--primary-color);
+  }
+  
+  .form-container form button {
+    width: 100%;
+    padding: 0.8rem;
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .form-container form button:hover {
+    background: var(--secondary-color);
+  }
+  
+  /* ======================================
+     Dashboard & Admin Card Layouts (dashboard.html, admin.html)
+  ====================================== */
+  .dashboard, .admin-dashboard {
+    background: var(--card-bg);
+    padding-top: 2rem;
+    margin: 2rem auto;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  }
+  
+  .dashboard h2, .admin-dashboard h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: var(--primary-color);
+  }
+  
+  .dashboard ul, .admin-dashboard ul {
+    display: flex;
+  flex-wrap: wrap;
+  gap: 20px;      /* Adjust spacing between boxes */
+  padding: 0;
+  margin: 0;
+  justify-content: center;  /* Center the boxes */
+  }
+  
+  .dashboard li, .admin-dashboard li {
+    flex: 1 1 calc(25% - 20px);  /* Adjust width: here, 4 boxes per row */
+  max-width: calc(25% - 20px);
+  background: #fff;           /* Fallback background */
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  padding: 10px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  }
+
+  .dashboard li:hover,
+  .admin-dashboard li:hover {
+  transform: translateY(-5px);
+  }
+  
+  /* Override the background colors for available/booked if needed */
+  .dashboard li.available, .admin-dashboard li.available  {
+    background: var(--success-color);
+    color: #fff;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .dashboard li.booked, .admin-dashboard li.booked {
+    background: var(--danger-color);
+    color: #fff;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .dashboard li:hover, .admin-dashboard li:hover {
+    transform: translateY(-3px);
+  }
+  
+  /* Action Button Styling */
+  .dashboard li button, .admin-dashboard li button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .dashboard li.available button, .admin-dashboard li.available button {
+    background: #fff;
+    color: var(--success-color);
+    border: 1px solid var(--success-color);
+  }
+  
+  .dashboard li.available button:hover, .admin-dashboard li.available button:hover {
+    background: var(--accent-color);
+    color: #fff;
+  }
+  
+  .dashboard li.booked button, .admin-dashboard li.booked button {
+    background: #fff;
+    color: var(--danger-color);
+    border: 1px solid var(--danger-color);
+  }
+  
+  .dashboard li.booked button:hover, .admin-dashboard li.booked button:hover {
+    background: var(--secondary-color);
+    color: #fff;
+  }
+  
+  /* ======================================
+     Footer
+  ====================================== */
+  html,body{
+    height: 100%;
+    margin: 0;
+  }
+
+  body{
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* main{
+    flex: 1;
+    height: 100%;
+  } */
+
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+  .footer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #3586ff; /* Change this color to match your theme if needed */
+    min-height: 150px;
+    padding: 20px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    overflow: hidden;
+  }
+  
+  /* Waves Effect */
+  .waves {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+  }
+  .wave {
+    position: relative;
+    display: block;
+    width: 200%;
+    height: 100px;
+    background: url("https://i.ibb.co/wQZVxxk/wave.png") repeat-x;
+    background-size: 1000px 100px;
+  }
+  #wave1 {
+    opacity: 1;
+    animation: animateWaves 4s linear infinite;
+  }
+  #wave2 {
+    opacity: 0.5;
+    animation: animateWaves 4s linear infinite reverse;
+  }
+  #wave3 {
+    opacity: 0.2;
+    animation: animateWaves 3s linear infinite;
+  }
+  #wave4 {
+    opacity: 0.7;
+    animation: animateWaves 3s linear infinite reverse;
+  }
+  
+  @keyframes animateWaves {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  /* Social Icons */
+  .social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    padding: 0;
+  }
+  .social-icon__item {
+    list-style: none;
+    margin: 0 10px;
+  }
+  .social-icon__link {
+    font-size: 2rem;
+    color: #fff;
+    transition: transform 0.5s;
+  }
+  .social-icon__link:hover {
+    transform: translateY(-10px);
+  }
+  
+  /* Footer Menu */
+  .menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 10px 0;
+    padding: 0;
+  }
+  .menu__item {
+    list-style: none;
+    margin: 0 10px;
+  }
+  .menu__link {
+    font-size: 1.2rem;
+    color: #fff;
+    text-decoration: none;
+    transition: opacity 0.5s;
+    opacity: 0.75;
+    font-weight: 300;
+  }
+  .menu__link:hover {
+    /* opacity: 1; */
+    color: black;
+    font-size: x-large;
+    transition-duration: 2s;
+  }
+  
+  /* Contact Info */
+  /* .contact-info {
+    margin: 15px 0;
+    text-align: center;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 300;
+  } */
+  
+  /* Footer Copyright */
+  .footer-copy {
+    color: #fff;
+    margin: 10px 0 0 0;
+    font-size: 0.9rem;
+    font-weight: 300;
+    text-align: center;
+  }
+
+  /* ======================================
+     Utility Classes & Responsive Design
+  ====================================== */
+  .container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 2rem;
+  }
+  
+/*=========================================
+    Table styling for registered users 
+==========================================*/
+.admin-dashboard table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.admin-dashboard table th,
+.admin-dashboard table td {
+  border: 1px solid #ccc;
+  padding: 0.8rem;
+  text-align: center;
+}
+
+.admin-dashboard table th {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.admin-dashboard table tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+/* Profile page styling */
+.profile {
+  background: var(--card-bg);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 600px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.profile h2 {
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    text-align: center;
+  }
+  nav ul li {
+    margin: 0.5rem 0;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .team-card {
+    width: calc(50% - 20px);
+  }
+}
+
+  

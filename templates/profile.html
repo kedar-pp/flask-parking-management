@@ -1,0 +1,9 @@
+<!-- templates/profile.html -->
+{% extends "base.html" %}
+{% block content %}
+<div class="profile">
+  <h2>Your Profile</h2>
+  <p><strong>Username:</strong> {{ current_user.username }}</p>
+  <!-- Add more profile fields as needed -->
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+<div class="dashboard">
+  <h2>User Dashboard</h2>
+  <h3>Parking Slot Availability</h3>
+  <ul>
+    {% for slot in slots %}
+        {% if slot.status == 'available' %}
+            <li class="available">Slot {{ slot.slot_number }} - Available
+                <form method="POST" action="{{ url_for('booking.book_slot', slot_id=slot.id) }}">
+                    <button type="submit">Reserve</button>
+                </form>
+            </li>
+        {% elif slot.booked_by == current_user.id %}
+            <li class="booked">Slot {{ slot.slot_number }} - Reserved by You
+                <form method="POST" action="{{ url_for('booking.release_slot', slot_id=slot.id) }}">
+                    <button type="submit">Release</button>
+                </form>
+            </li>
+        {% else %}
+            <li class="booked">Slot {{ slot.slot_number }} - Reserved</li>
+        {% endif %}
+    {% endfor %}
+
+  </ul>
+</div>
+{% endblock %}

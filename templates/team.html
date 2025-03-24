@@ -1,0 +1,33 @@
+<!-- templates/team.html -->
+{% extends "base.html" %}
+{% block content %}
+<div class="public-page">
+  <h2>Our Team</h2>
+  <div class="team-cards">
+    <!-- Card 1 -->
+    <div class="team-card">
+      <img src="{{ url_for('static', filename='images/team1.jpg') }}" alt="Team Member 1">
+      <h3>John Doe</h3>
+      <p>Manager</p>
+    </div>
+    <!-- Card 2 -->
+    <div class="team-card">
+      <img src="{{ url_for('static', filename='images/team2.jpg') }}" alt="Team Member 2">
+      <h3>Jane Smith</h3>
+      <p>Operations</p>
+    </div>
+    <!-- Card 3 -->
+    <div class="team-card">
+      <img src="{{ url_for('static', filename='images/team3.jpg') }}" alt="Team Member 3">
+      <h3>Mike Johnson</h3>
+      <p>Support</p>
+    </div>
+    <!-- Card 4 -->
+    <div class="team-card">
+      <img src="{{ url_for('static', filename='images/team4.jpg') }}" alt="Team Member 4">
+      <h3>Emily Davis</h3>
+      <p>Marketing</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
